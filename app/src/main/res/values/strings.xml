@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Currency</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="from">FROM</string>
+    <string name="to">To</string>
+    <string name="details">Details</string>
+    <string name="default_converted_value">XXXX</string>
+    <string name="historical_data">Historical Data</string>
+    <string name="other_currencies">Other Currencies</string>
+</resources>

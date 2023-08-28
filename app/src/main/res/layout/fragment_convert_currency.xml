@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.currency.ui.viewmodels.ConvertCurrencyViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/_40sdp"
+        tools:context=".ui.fragments.ConvertCurrencyFragment">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBaseCurrency"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            app:errorEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toStartOf="@id/ivSwap"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoCompleteBaseCurrency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/from"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageView
+            android:id="@+id/ivSwap"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@id/tilBaseCurrency"
+            app:layout_constraintEnd_toStartOf="@id/tilTargetCurrency"
+            app:layout_constraintStart_toEndOf="@id/tilBaseCurrency"
+            app:layout_constraintTop_toTopOf="@id/tilBaseCurrency"
+            app:srcCompat="@drawable/ic_swap" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTargetCurrency"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            app:errorEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivSwap"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/autoCompleteTargetCurrency"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/to"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilBaseCurrencyAmount"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:errorEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@id/tilBaseCurrency"
+            app:layout_constraintStart_toStartOf="@id/tilBaseCurrency"
+            app:layout_constraintTop_toBottomOf="@id/tilBaseCurrency">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etBaseCurrencyAmount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="numberDecimal"
+                android:text="@={viewModel.baseCurrencyAmount}"
+                android:textSize="@dimen/_12ssp"
+                tools:text="1" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTargetCurrencyAmount"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_55sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            app:errorEnabled="false"
+            app:hintEnabled="false"
+            app:layout_constraintEnd_toEndOf="@id/tilTargetCurrency"
+            app:layout_constraintStart_toStartOf="@id/tilTargetCurrency"
+            app:layout_constraintTop_toBottomOf="@id/tilTargetCurrency">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTargetCurrencyAmount"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:enabled="false"
+                android:hint="@string/default_converted_value"
+                android:inputType="numberDecimal"
+                android:textSize="@dimen/_12ssp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/details"
+            android:textSize="@dimen/_16ssp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilBaseCurrencyAmount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
